@@ -12,6 +12,12 @@ namespace Services
             _manager=manager;
         }
 
+        public void CreateProduct(Product product)
+        {
+            _manager.Product.Create(product);
+            _manager.Save();
+        }
+
         public IEnumerable<Product> GetAllProducts(bool trackChanges)
         {
             return _manager.Product.GetAllProducts(trackChanges);
@@ -23,6 +29,13 @@ namespace Services
             if (product is null)
                 throw new Exception("PRODUCT NOT FOUND!");
             return product;
+        }
+
+        public void UpdateOneProduct(Product product)
+        {
+          _manager.Product.Update(product);
+          _manager.Save();
+
         }
     }
 }

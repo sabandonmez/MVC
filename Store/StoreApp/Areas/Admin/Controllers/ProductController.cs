@@ -50,5 +50,16 @@ namespace Areas.Admin.Controllers
             }
             return View();
         }
-    }
+       public IActionResult Delete([FromRoute(Name ="id")] int id)
+       {
+        serviceManager.ProductService.DeleteOneProduct(id);     
+        return RedirectToAction("Index");
+       }
+       [HttpPost]
+       [ValidateAntiForgeryToken]
+       public IActionResult Delete(Product product)
+       {
+        return View();
+       }
+}
 }

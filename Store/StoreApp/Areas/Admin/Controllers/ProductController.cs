@@ -1,5 +1,7 @@
+using Entities.Dtos;
 using Entities.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Services.Contracts;
 
 namespace Areas.Admin.Controllers
@@ -20,15 +22,19 @@ namespace Areas.Admin.Controllers
         }
         public IActionResult Create()
         {
+            ViewBag.Categories=
+            new SelectList(serviceManager.CategoryService.GetAllCategories(false),"CategoryId","CategoryName","1");
+            
+            
             return View();
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create([FromForm] Product product)
+        public IActionResult Create([FromForm] ProductDtoForInsertion productDtoForInsertion)
         {
             if (ModelState.IsValid)
             {
-                serviceManager.ProductService.CreateProduct(product);
+                serviceManager.ProductService.CreateProduct(productDtoForInsertion);
             return RedirectToAction("Index");
             }
             return View();

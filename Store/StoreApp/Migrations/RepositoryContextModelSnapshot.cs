@@ -29,7 +29,7 @@ namespace StoreApp.Migrations
 
                     b.HasKey("CategoryId");
 
-                    b.ToTable("Category");
+                    b.ToTable("Categories");
 
                     b.HasData(
                         new
@@ -41,6 +41,16 @@ namespace StoreApp.Migrations
                         {
                             CategoryId = 2,
                             CategoryName = "Electronic"
+                        },
+                        new
+                        {
+                            CategoryId = 3,
+                            CategoryName = "Cosmetics"
+                        },
+                        new
+                        {
+                            CategoryId = 4,
+                            CategoryName = "Accessory"
                         });
                 });
 
@@ -53,11 +63,17 @@ namespace StoreApp.Migrations
                     b.Property<int?>("CategoryId")
                         .HasColumnType("INTEGER");
 
+                    b.Property<string>("ImageUrl")
+                        .HasColumnType("TEXT");
+
                     b.Property<decimal>("Price")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("ProductName")
                         .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Summary")
                         .HasColumnType("TEXT");
 
                     b.HasKey("ProductId");
@@ -70,51 +86,119 @@ namespace StoreApp.Migrations
                         new
                         {
                             ProductId = 1,
-                            CategoryId = 2,
+                            CategoryId = 4,
+                            ImageUrl = "/images/1.jpg",
                             Price = 17000m,
-                            ProductName = "Computer"
+                            ProductName = "Güneş Gözlüğü",
+                            Summary = ""
                         },
                         new
                         {
                             ProductId = 2,
                             CategoryId = 2,
+                            ImageUrl = "/images/2.jpg",
                             Price = 1000m,
-                            ProductName = "Keyboard"
+                            ProductName = "Oyun Kolu",
+                            Summary = ""
                         },
                         new
                         {
                             ProductId = 3,
-                            CategoryId = 2,
+                            CategoryId = 3,
+                            ImageUrl = "/images/3.jpg",
                             Price = 500m,
-                            ProductName = "Mouse"
+                            ProductName = "Ruj",
+                            Summary = ""
                         },
                         new
                         {
                             ProductId = 4,
                             CategoryId = 2,
+                            ImageUrl = "/images/4.jpg",
                             Price = 7000m,
-                            ProductName = "Monitor"
+                            ProductName = "Bmw Oyuncak Araba",
+                            Summary = ""
                         },
                         new
                         {
                             ProductId = 5,
                             CategoryId = 2,
+                            ImageUrl = "/images/5.jpg",
                             Price = 1000m,
-                            ProductName = "Deck"
+                            ProductName = "Kulaklık",
+                            Summary = ""
                         },
                         new
                         {
                             ProductId = 6,
-                            CategoryId = 1,
-                            Price = 25m,
-                            ProductName = "History"
+                            CategoryId = 2,
+                            ImageUrl = "/images/6.jpg",
+                            Price = 9800m,
+                            ProductName = "Kamera",
+                            Summary = ""
                         },
                         new
                         {
                             ProductId = 7,
+                            CategoryId = 2,
+                            ImageUrl = "/images/7.jpg",
+                            Price = 35000m,
+                            ProductName = "Apple Laptop",
+                            Summary = ""
+                        },
+                        new
+                        {
+                            ProductId = 8,
+                            CategoryId = 2,
+                            ImageUrl = "/images/8.jpg",
+                            Price = 14000m,
+                            ProductName = "Asus Laptop",
+                            Summary = ""
+                        },
+                        new
+                        {
+                            ProductId = 9,
+                            CategoryId = 2,
+                            ImageUrl = "/images/9.jpg",
+                            Price = 4800m,
+                            ProductName = "Samsung Monitör",
+                            Summary = ""
+                        },
+                        new
+                        {
+                            ProductId = 10,
+                            CategoryId = 2,
+                            ImageUrl = "/images/10.jpg",
+                            Price = 6999m,
+                            ProductName = "MSI Monitör",
+                            Summary = ""
+                        },
+                        new
+                        {
+                            ProductId = 11,
+                            CategoryId = 4,
+                            ImageUrl = "/images/11.jpg",
+                            Price = 1345m,
+                            ProductName = "Pandora Bileklik",
+                            Summary = ""
+                        },
+                        new
+                        {
+                            ProductId = 12,
                             CategoryId = 1,
-                            Price = 45m,
-                            ProductName = "Hamlet"
+                            ImageUrl = "/images/12.jpg",
+                            Price = 125m,
+                            ProductName = "Atomik Alışkanlıklar",
+                            Summary = ""
+                        },
+                        new
+                        {
+                            ProductId = 13,
+                            CategoryId = 1,
+                            ImageUrl = "/images/13.jpg",
+                            Price = 145m,
+                            ProductName = "Altın Yay",
+                            Summary = ""
                         });
                 });
 

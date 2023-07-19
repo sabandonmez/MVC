@@ -14,13 +14,19 @@ namespace Repositories.Config
             builder.Property(p=>p.Price).IsRequired();
             builder.HasData(
 
-         new Product() { ProductId = 1, CategoryId = 2, ProductName = "Computer", Price = 17_000 },
-         new Product() { ProductId = 2, CategoryId = 2, ProductName = "Keyboard", Price = 1_000 },
-         new Product() { ProductId = 3, CategoryId = 2, ProductName = "Mouse", Price = 500 },
-         new Product() { ProductId = 4, CategoryId = 2, ProductName = "Monitor", Price = 7_000 },
-         new Product() { ProductId = 5, CategoryId = 2, ProductName = "Deck", Price = 1_000 },
-         new Product() { ProductId = 6, CategoryId = 1, ProductName = "History", Price = 25 },
-         new Product() { ProductId = 7, CategoryId = 1, ProductName = "Hamlet", Price = 45 }
+         new Product() { ProductId = 1, CategoryId = 4,ImageUrl="/images/1.jpg", ProductName = "Güneş Gözlüğü", Price = 1700 },
+         new Product() { ProductId = 2, CategoryId = 2,ImageUrl="/images/2.jpg", ProductName = "Oyun Kolu", Price = 1000 },
+         new Product() { ProductId = 3, CategoryId = 3,ImageUrl="/images/3.jpg", ProductName = "Ruj", Price = 500 },
+         new Product() { ProductId = 4, CategoryId = 2,ImageUrl="/images/4.jpg", ProductName = "Bmw Oyuncak Araba", Price = 7000 },
+         new Product() { ProductId = 5, CategoryId = 2,ImageUrl="/images/5.jpg", ProductName = "Kulaklık", Price = 1000 },
+         new Product() { ProductId = 6, CategoryId = 2,ImageUrl="/images/6.jpg", ProductName = "Kamera", Price = 9800 },
+         new Product() { ProductId = 7, CategoryId = 2,ImageUrl="/images/7.jpg", ProductName = "Apple Laptop", Price = 35000 },
+         new Product() { ProductId = 8, CategoryId = 2,ImageUrl="/images/8.jpg", ProductName = "Asus Laptop", Price = 14000 },
+         new Product() { ProductId = 9, CategoryId = 2,ImageUrl="/images/9.jpg", ProductName = "Samsung Monitör", Price = 4800 },
+         new Product() { ProductId = 10, CategoryId = 2,ImageUrl="/images/10.jpg", ProductName = "MSI Monitör", Price = 6999 },
+         new Product() { ProductId = 11, CategoryId = 4,ImageUrl="/images/11.jpg", ProductName = "Pandora Bileklik", Price = 1345 },
+         new Product() { ProductId = 12, CategoryId = 1,ImageUrl="/images/12.jpg", ProductName = "Atomik Alışkanlıklar", Price = 125 },
+         new Product() { ProductId = 13, CategoryId = 1,ImageUrl="/images/13.jpg", ProductName = "Altın Yay", Price = 145 }
 
             );
         }

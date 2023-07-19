@@ -13,7 +13,9 @@ namespace Repositories.Config
             
             builder.HasData(
             new Category() { CategoryId = 1, CategoryName = "Book" },
-            new Category() { CategoryId = 2, CategoryName = "Electronic" }
+            new Category() { CategoryId = 2, CategoryName = "Electronic" },
+            new Category() { CategoryId = 3, CategoryName = "Cosmetics" },
+            new Category() { CategoryId = 4, CategoryName = "Accessory" }
             );
         }
     }

@@ -5,6 +5,7 @@ using Repositories;
 using Repositories.Contracts;
 using Services;
 using Services.Contracts;
+using StoreApp.Infrastructe.Mapper;
 
 var builder = WebApplication.CreateBuilder(args);
 

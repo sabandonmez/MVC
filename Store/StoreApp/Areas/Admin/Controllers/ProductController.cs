@@ -22,18 +22,28 @@ namespace Areas.Admin.Controllers
         }
         public IActionResult Create()
         {
-            ViewBag.Categories=
-            new SelectList(serviceManager.CategoryService.GetAllCategories(false),"CategoryId","CategoryName","1");
-            
-            
+            ViewBag.Categories= GetCategoriesSelectedList();
             return View();
         }
+
+        private SelectList GetCategoriesSelectedList()
+        {
+            return new SelectList(serviceManager.CategoryService.GetAllCategories(false),"CategoryId","CategoryName","1");
+        }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create([FromForm] ProductDtoForInsertion productDtoForInsertion)
+        public async Task<IActionResult> Create([FromForm] ProductDtoForInsertion productDtoForInsertion,IFormFile file)
         {
             if (ModelState.IsValid)
             {
+                string path = Path.Combine(Directory.GetCurrentDirectory(),"wwwroot","images",file.FileName);
+                
+                using (var stream = new FileStream(path,FileMode.Create))
+                {
+                    await file.CopyToAsync(stream);
+                }
+                productDtoForInsertion.ImageUrl=String.Concat("/images/",file.FileName);
                 serviceManager.ProductService.CreateProduct(productDtoForInsertion);
             return RedirectToAction("Index");
             }
@@ -42,16 +52,24 @@ namespace Areas.Admin.Controllers
         }
          public IActionResult Update([FromRoute(Name ="id")] int id)
         {
-            var model=serviceManager.ProductService.GetOneProduct(id,false);
+            ViewBag.Categories=GetCategoriesSelectedList();
+            var model=serviceManager.ProductService.GetOneProductForUpdate(id,false);
             return View(model);
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Update(Product product)
+        public  async Task<IActionResult> Update(ProductDtoForUpdate productDto,IFormFile file)
         {
             if (ModelState.IsValid)
             {
-                serviceManager.ProductService.UpdateOneProduct(product);
+                 string path = Path.Combine(Directory.GetCurrentDirectory(),"wwwroot","images",file.FileName);
+                
+                using (var stream = new FileStream(path,FileMode.Create))
+                {
+                    await file.CopyToAsync(stream);
+                }
+                productDto.ImageUrl=String.Concat("/images/",file.FileName);
+                serviceManager.ProductService.UpdateOneProduct(productDto);
                 return RedirectToAction("Index");
             }
             return View();

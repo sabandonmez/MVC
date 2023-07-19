@@ -47,9 +47,18 @@ namespace Services
             return product;
         }
 
-        public void UpdateOneProduct(Product product)
+        public ProductDtoForUpdate GetOneProductForUpdate(int id, bool trackChanges)
         {
-            _manager.Product.Update(product);
+           var product=GetOneProduct(id,trackChanges);
+           var productDto= mapper.Map<ProductDtoForUpdate>(product);
+           return productDto;
+
+        }
+
+        public void UpdateOneProduct(ProductDtoForUpdate productDto)
+        {
+            var entity = mapper.Map<Product>(productDto);
+            _manager.Product.UpdateOneProduct(entity);
             _manager.Save();
 
         }

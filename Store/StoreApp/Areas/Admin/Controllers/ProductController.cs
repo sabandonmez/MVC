@@ -74,6 +74,8 @@ namespace Areas.Admin.Controllers
             }
             return View();
         }
+      
+
        public IActionResult Delete([FromRoute(Name ="id")] int id)
        {
         serviceManager.ProductService.DeleteOneProduct(id);     

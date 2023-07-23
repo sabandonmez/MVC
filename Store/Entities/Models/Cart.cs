@@ -9,7 +9,7 @@ namespace Entities.Models
         }    
        public void AddItem(Product product , int quantity)
        {
-            CartLine? line=Lines.Where(l=>l.Product.ProductId==product.ProductId).FirstOrDefault();
+            CartLine? line=Lines.Where(l=>l.Product.ProductId.Equals(product.ProductId)).FirstOrDefault();
 
             if (line is null)
             {

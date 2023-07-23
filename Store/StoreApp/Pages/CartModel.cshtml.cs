@@ -10,13 +10,13 @@ namespace StoreApp.Pages
         private readonly IServiceManager serviceManager;
         public Cart Cart { get; set; }
         
+        public string ReturnUrl { get; set; }="/";
 
         public CartModel(IServiceManager serviceManager,Cart cart)
         {
             this.serviceManager = serviceManager;
             this.Cart=cart;
         }
-        public string ReturnUrl { get; set; }="/";
 
         public void OnGet(string returnUrl)
         {

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "wuxHq0biWyW/J/ZXfE9Q/cC1KKwFuOQH+uGOLce2JpY=",
+  "Hash": "MFPi/hknlbj3EToE3opNCiVRGLeWaR/cXIWwWaXNPBY=",
   "Source": "StoreApp",
   "BasePath": "_content/StoreApp",
   "Mode": "Default",
@@ -304,6 +304,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\gunesgozlugu.jpg"
+    },
+    {
+      "Identity": "D:\\MVC\\Store\\StoreApp\\wwwroot\\images\\vozol-alien-5000-strawberry-mango_533x.webp",
+      "SourceId": "StoreApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\MVC\\Store\\StoreApp\\wwwroot\\",
+      "BasePath": "_content/StoreApp",
+      "RelativePath": "images/vozol-alien-5000-strawberry-mango_533x.webp",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\vozol-alien-5000-strawberry-mango_533x.webp"
     },
     {
       "Identity": "D:\\MVC\\Store\\StoreApp\\wwwroot\\js\\site.js",

@@ -10,6 +10,9 @@ using StoreApp.Infrastructe.Mapper;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddDistributedMemoryCache();
+builder.Services.AddSession();
+
 builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages();
 builder.Services.AddScoped<IRepositoryManager, RepositoryManager>();
@@ -31,6 +34,7 @@ builder.Services.AddDbContext<RepositoryContext>(options =>
 var app = builder.Build();
 
 app.UseStaticFiles();
+app.UseSession();
 app.UseHttpsRedirection();
 app.UseRouting();
 app.UseEndpoints(endpoints =>

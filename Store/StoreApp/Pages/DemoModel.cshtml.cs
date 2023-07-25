@@ -15,6 +15,7 @@ namespace StoreApp.Pages
         public void OnPost([FromForm]string name)
         {
             HttpContext.Session.SetString("name",name);
+           
         }
     }
 }

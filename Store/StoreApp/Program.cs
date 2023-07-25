@@ -11,10 +11,18 @@ using StoreApp.Infrastructe.Mapper;
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddDistributedMemoryCache();
-builder.Services.AddSession();
+builder.Services.AddSession(options=>
+{
+    options.Cookie.Name="StoreApp.Session";
+    options.IdleTimeout = TimeSpan.FromMinutes(10);
+});
+builder.Services.AddSingleton<IHttpContextAccessor,HttpContextAccessor>();
+
 
 builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages();
+
+
 builder.Services.AddScoped<IRepositoryManager, RepositoryManager>();
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
 builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();

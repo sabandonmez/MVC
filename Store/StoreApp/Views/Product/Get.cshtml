@@ -11,13 +11,27 @@
 </div>
 </div>
 
+<div class="text-center">
+
+
 <div class="btn-group">
-    <a class="btn btn-primary" asp-action="Index" asp-controller="Home">
+    <a class="btn btn-outline-primary" asp-action="Index" asp-controller="Home">
        <i class="fa-solid fa-house"></i>
         Home</a>
     <a class="btn btn-outline-primary" asp-action="Index" asp-controller="Product">
         <i class="fa-solid fa-list"></i>
         Products</a>
+
+        <form id="@Model.ProductId" asp-page="/cart" method="post">
+        <input type="hidden" asp-for="ProductId"/>
+        <input type="hidden" name="returnUrl" value="@ViewContext.HttpContext.Request.PathAndQuery()"/>
+        <button type="submit" class="btn btn-outline-primary">
+            <i class="fa fa-cart-plus"></i>
+        </button>
+        </form>
+</div>
+
+    
 </div>
 
 @section Header{

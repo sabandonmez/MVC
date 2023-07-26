@@ -7,7 +7,9 @@ namespace Repositories;
 public class RepositoryContext : DbContext
 {
     public DbSet<Product>? Products { get; set; }
-    public DbSet<Category> Categories {get; set;}
+    public DbSet<Category> Categories { get; set; }
+
+    public DbSet<Order> Orders { get; set; }
 
     public RepositoryContext(DbContextOptions<RepositoryContext> options) : base(options)
     {
@@ -17,10 +19,10 @@ public class RepositoryContext : DbContext
     {
         base.OnModelCreating(modelBuilder);
 
-       // modelBuilder.ApplyConfiguration(new ProductConfig());
-       // modelBuilder.ApplyConfiguration(new CategoryConfig());
+        // modelBuilder.ApplyConfiguration(new ProductConfig());
+        // modelBuilder.ApplyConfiguration(new CategoryConfig());
 
-       //Bunları yapmak yerine aşağıdakini yapıyoruz:
+        //Bunları yapmak yerine aşağıdakini yapıyoruz:
         modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
     }
 }

@@ -11,8 +11,8 @@ using Repositories;
 namespace StoreApp.Migrations
 {
     [DbContext(typeof(RepositoryContext))]
-    [Migration("20230731192327_start")]
-    partial class start
+    [Migration("20230801232922_init")]
+    partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -138,6 +138,9 @@ namespace StoreApp.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
+                    b.Property<bool>("ShowCase")
+                        .HasColumnType("INTEGER");
+
                     b.Property<string>("Summary")
                         .HasColumnType("TEXT");
 
@@ -155,6 +158,7 @@ namespace StoreApp.Migrations
                             ImageUrl = "/images/1.jpg",
                             Price = 1700m,
                             ProductName = "Güneş Gözlüğü",
+                            ShowCase = false,
                             Summary = ""
                         },
                         new
@@ -164,6 +168,7 @@ namespace StoreApp.Migrations
                             ImageUrl = "/images/2.jpg",
                             Price = 1000m,
                             ProductName = "Oyun Kolu",
+                            ShowCase = false,
                             Summary = ""
                         },
                         new
@@ -173,6 +178,7 @@ namespace StoreApp.Migrations
                             ImageUrl = "/images/3.jpg",
                             Price = 500m,
                             ProductName = "Ruj",
+                            ShowCase = false,
                             Summary = ""
                         },
                         new
@@ -182,6 +188,7 @@ namespace StoreApp.Migrations
                             ImageUrl = "/images/4.jpg",
                             Price = 7000m,
                             ProductName = "Bmw Oyuncak Araba",
+                            ShowCase = false,
                             Summary = ""
                         },
                         new
@@ -191,6 +198,7 @@ namespace StoreApp.Migrations
                             ImageUrl = "/images/5.jpg",
                             Price = 1000m,
                             ProductName = "Kulaklık",
+                            ShowCase = false,
                             Summary = ""
                         },
                         new
@@ -200,6 +208,7 @@ namespace StoreApp.Migrations
                             ImageUrl = "/images/6.jpg",
                             Price = 9800m,
                             ProductName = "Kamera",
+                            ShowCase = false,
                             Summary = ""
                         },
                         new
@@ -209,6 +218,7 @@ namespace StoreApp.Migrations
                             ImageUrl = "/images/7.jpg",
                             Price = 35000m,
                             ProductName = "Apple Laptop",
+                            ShowCase = false,
                             Summary = ""
                         },
                         new
@@ -218,6 +228,7 @@ namespace StoreApp.Migrations
                             ImageUrl = "/images/8.jpg",
                             Price = 14000m,
                             ProductName = "Asus Laptop",
+                            ShowCase = false,
                             Summary = ""
                         },
                         new
@@ -227,6 +238,7 @@ namespace StoreApp.Migrations
                             ImageUrl = "/images/9.jpg",
                             Price = 4800m,
                             ProductName = "Samsung Monitör",
+                            ShowCase = false,
                             Summary = ""
                         },
                         new
@@ -236,6 +248,7 @@ namespace StoreApp.Migrations
                             ImageUrl = "/images/10.jpg",
                             Price = 6999m,
                             ProductName = "MSI Monitör",
+                            ShowCase = false,
                             Summary = ""
                         },
                         new
@@ -245,6 +258,7 @@ namespace StoreApp.Migrations
                             ImageUrl = "/images/11.jpg",
                             Price = 1345m,
                             ProductName = "Pandora Bileklik",
+                            ShowCase = true,
                             Summary = ""
                         },
                         new
@@ -254,6 +268,7 @@ namespace StoreApp.Migrations
                             ImageUrl = "/images/12.jpg",
                             Price = 125m,
                             ProductName = "Atomik Alışkanlıklar",
+                            ShowCase = true,
                             Summary = ""
                         },
                         new
@@ -263,6 +278,7 @@ namespace StoreApp.Migrations
                             ImageUrl = "/images/13.jpg",
                             Price = 145m,
                             ProductName = "Altın Yay",
+                            ShowCase = true,
                             Summary = ""
                         });
                 });

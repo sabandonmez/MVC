@@ -32,4 +32,6 @@ app.UseEndpoints(endpoints =>
  
 });
 
+app.UseConfigureAndCheckMigration();
+
 app.Run();

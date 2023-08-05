@@ -55,6 +55,11 @@ namespace Services
 
         }
 
+        public IEnumerable<Product> GetShowcaseProducts(bool trackChanges)
+        {
+            return _manager.Product.GetShowcaseProducts(trackChanges);
+        }
+
         public void UpdateOneProduct(ProductDtoForUpdate productDto)
         {
             var entity = mapper.Map<Product>(productDto);

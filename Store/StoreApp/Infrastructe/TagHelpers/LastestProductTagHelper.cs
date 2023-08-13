@@ -9,6 +9,8 @@ namespace StoreApp.Infrastructe.TagHelpers
     public class LastestProductTagHelper:TagHelper
     {
         private readonly IServiceManager serviceManager;
+        [HtmlAttributeName("number")]
+        public int Number { get; set; }
 
         public LastestProductTagHelper(IServiceManager serviceManager)
         {
@@ -31,7 +33,7 @@ namespace StoreApp.Infrastructe.TagHelpers
             h6.InnerHtml.AppendHtml(" Lastest Products");
 
             TagBuilder ul = new TagBuilder("ul");
-            var products=serviceManager.ProductService.GetLastestProducts(5,false);
+            var products=serviceManager.ProductService.GetLastestProducts(Number,false);
             foreach (Product item in products)
             {
                 TagBuilder li = new TagBuilder("li");

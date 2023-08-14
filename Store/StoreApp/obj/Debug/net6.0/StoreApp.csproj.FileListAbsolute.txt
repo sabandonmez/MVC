@@ -63,3 +63,4 @@ D:\MVC\Store\StoreApp\obj\Debug\net6.0\staticwebassets\msbuild.build.StoreApp.pr
 D:\MVC\Store\StoreApp\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.StoreApp.props
 D:\MVC\Store\StoreApp\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.StoreApp.props
 D:\MVC\Store\StoreApp\obj\Debug\net6.0\staticwebassets.pack.json
+D:\MVC\Store\StoreApp\bin\Debug\net6.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll

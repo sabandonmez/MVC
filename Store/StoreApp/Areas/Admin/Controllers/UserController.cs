@@ -1,11 +1,14 @@
 using Entities.Models.Dtos;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Services.Contracts;
 using SQLitePCL;
 
 namespace StoreApp.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize(Roles ="admin")]
     public class UserController : Controller
     {
         private readonly IServiceManager serviceManager;
@@ -32,18 +35,18 @@ namespace StoreApp.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([FromForm] UserDtoForCreation userDto)
         {
-            var result= await serviceManager.AuthService.CreateUser(userDto);
+            var result = await serviceManager.AuthService.CreateUser(userDto);
             return result.Succeeded
                 ? RedirectToAction("Index")
                 : View();
         }
 
-        public async Task<IActionResult> Update([FromRoute(Name ="id")] string id)
+        public async Task<IActionResult> Update([FromRoute(Name = "id")] string id)
         {
             var result = await serviceManager.AuthService.GetUserForUpdate(id);
             return View(result);
         }
-        
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Update([FromForm] UserDtoForUpdate userDto)
@@ -55,5 +58,44 @@ namespace StoreApp.Areas.Admin.Controllers
             }
             return View();
         }
+
+        public async Task<IActionResult> ResetPassword([FromRoute(Name = "id")] string id)
+        {
+            return View(new ResetPasswordDto()
+            {
+                UserName = id
+            });
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> ResetPassword([FromForm] ResetPasswordDto model)
+        {
+            var result = await serviceManager.AuthService.ResetPassword(model);
+            if (result.Succeeded)
+            {
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                ModelState.AddModelError("", "Şifreniz : En az bir özel karakter (örneğin: !, @, #, $, %, vb.) içermelidir.");
+                return View();
+            }
+        }
+
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeleteOneUser([FromForm] UserDto model)
+        {
+            var result = await serviceManager.AuthService.DeleteOneUser(model.UserName);
+
+            return result.Succeeded
+            ? RedirectToAction("Index")
+            : View();
+        }
+
+
+
     }
 }

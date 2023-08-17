@@ -64,3 +64,6 @@ D:\MVC\Store\StoreApp\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeti
 D:\MVC\Store\StoreApp\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.StoreApp.props
 D:\MVC\Store\StoreApp\obj\Debug\net6.0\staticwebassets.pack.json
 D:\MVC\Store\StoreApp\bin\Debug\net6.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+D:\MVC\Store\StoreApp\bin\Debug\net6.0\Presentation.dll
+D:\MVC\Store\StoreApp\bin\Debug\net6.0\Presentation.pdb
+D:\MVC\Store\StoreApp\obj\Debug\net6.0\StoreApp.MvcApplicationPartsAssemblyInfo.cs

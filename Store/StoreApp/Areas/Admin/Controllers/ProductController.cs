@@ -1,9 +1,11 @@
 using Entities.Dtos;
 using Entities.Models;
+using Entities.RequestParameters;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Services.Contracts;
+using StoreApp.Models;
 
 namespace Areas.Admin.Controllers
 {
@@ -17,10 +19,21 @@ namespace Areas.Admin.Controllers
         {
             this.serviceManager = serviceManager;
         }
-        public IActionResult Index()
+        public IActionResult Index([FromQuery]ProductRequestParameters p)
         {
-            var model= serviceManager.ProductService.GetAllProducts(false);
-            return View(model);
+            ViewData["Title"]="Products";
+           var products = serviceManager.ProductService.GetAllProductsWithDetails(p);
+            var pagination=new Pagination()
+            {
+                CurrentPage=p.PageNumber,
+                ItemPerPage=p.PageSize,
+                TotalItems= serviceManager.ProductService.GetAllProducts(false).Count()
+            };
+            return View(new ProductListViewModel()
+            {
+                Products=products,
+                Pagination=pagination
+            });
         }
         public IActionResult Create()
         {
@@ -47,6 +60,7 @@ namespace Areas.Admin.Controllers
                 }
                 productDtoForInsertion.ImageUrl=String.Concat("/images/",file.FileName);
                 serviceManager.ProductService.CreateProduct(productDtoForInsertion);
+                TempData["success"]=$"{productDtoForInsertion.ProductName} has been created.";
             return RedirectToAction("Index");
             }
             return View();
@@ -56,6 +70,7 @@ namespace Areas.Admin.Controllers
         {
             ViewBag.Categories=GetCategoriesSelectedList();
             var model=serviceManager.ProductService.GetOneProductForUpdate(id,false);
+            ViewData["Title"]=model?.ProductName;
             return View(model);
         }
         [HttpPost]
@@ -81,6 +96,7 @@ namespace Areas.Admin.Controllers
        public IActionResult Delete([FromRoute(Name ="id")] int id)
        {
         serviceManager.ProductService.DeleteOneProduct(id);     
+        TempData["danger"]="Product has been removed.";
         return RedirectToAction("Index");
        }
        [HttpPost]

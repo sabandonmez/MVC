@@ -14,6 +14,7 @@ namespace StoreApp.Infrastructe.Mapper
             CreateMap<ProductDtoForUpdate,Product>().ReverseMap();
             CreateMap<UserDtoForCreation,IdentityUser>();
             CreateMap<UserDtoForUpdate,IdentityUser>().ReverseMap();
+         
             
         }
     }

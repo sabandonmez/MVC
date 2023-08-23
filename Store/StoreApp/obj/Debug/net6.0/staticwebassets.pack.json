@@ -69,6 +69,14 @@
       "PackagePath": "staticwebassets\\images\\gunesgozlugu.jpg"
     },
     {
+      "Id": "D:\\MVC\\Store\\StoreApp\\wwwroot\\images\\gunesgozlügü.jpg",
+      "PackagePath": "staticwebassets\\images\\gunesgozlügü.jpg"
+    },
+    {
+      "Id": "D:\\MVC\\Store\\StoreApp\\wwwroot\\images\\kamera.jpg",
+      "PackagePath": "staticwebassets\\images\\kamera.jpg"
+    },
+    {
       "Id": "D:\\MVC\\Store\\StoreApp\\wwwroot\\images\\vozol-alien-5000-strawberry-mango_533x.webp",
       "PackagePath": "staticwebassets\\images\\vozol-alien-5000-strawberry-mango_533x.webp"
     },
